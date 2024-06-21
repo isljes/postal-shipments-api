@@ -1,0 +1,28 @@
+services:
+
+  postgres:
+    container_name: ShipmentsDatabase
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=shipment
+      - POSTGRES_PASSWORD=user
+      - POSTGRES_USER=user
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  app:
+    build:
+      dockerfile: Dockerfile
+      args:
+        JAR_FILE: target/shipments-0.0.1-SNAPSHOT.jar
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/shipment
+
+volumes:
+  pg_data:
