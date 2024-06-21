@@ -9,7 +9,7 @@
 
 #### 1. Clone repository
 
-> `git clone https://github.com/isljes/`
+> `git clone https://github.com/isljes/postal-shipments-api.git`
 
 #### 2. (Optional) Customize`compose.yml`
 
