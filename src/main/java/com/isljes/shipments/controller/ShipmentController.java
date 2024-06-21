@@ -41,8 +41,8 @@ public class ShipmentController {
 
     @Operation(
             summary = "Not Found если не найден офис или посылка",
-            description = "Возможные статусы  ARRIVED, DEPARTED, RECEIVED",
-
+            description = "Регистрация посылки, автоматически выставляется статус WAITING_SHIPMENT\n" +
+                    "Варианты занчения поля type  LETTER, PARCEL, PACKAGE, POSTCARD",
             responses = {
                     @ApiResponse(
                             description = "Success",
